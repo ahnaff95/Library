@@ -30,6 +30,7 @@ body {
 .nav__title {
   font-size: 2em;
   color: white;
+  cursor: pointer;
 }
 
 .nav__login {
