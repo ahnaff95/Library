@@ -7,5 +7,29 @@
     <title>Library</title>
     <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <h1 class="nav__title">Library</h1>
+        <button class="nav__login">Log In</button>
+      </nav>
+    </header>
+
+    <main class="container__books">
+      <button class="books__add" id="addBook">+ Add Book</button>
+      <section class="books__display" id="bookDisplay">
+        <article class="book" id="bookContainer">
+          <h3 class="book__title" id="bookTitle">Deep Work</h2>
+          <p class="book__author" id="bookAuthor">Cal Newport</p>
+          <p class="book__pages" id="bookPages">309</p>
+          <button class="book__read" id="bookRead">Read</button>
+          <button class="book__remove" id="bookRemove">Remove</button>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright&copy; Ahnaf Farhan</p>
+    </footer>
+  </body>
 </html>
