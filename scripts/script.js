@@ -1,5 +1,9 @@
 "use strict";
 
+// Function looping through array of books - Library Array ✅
+// Modal Pop Up
+// Remove Book
+
 // DOM Selectors
 const bookDisplay = document.getElementById("bookDisplay");
 const bookContainer = document.getElementById("bookContainer");

@@ -76,7 +76,60 @@ body {
   cursor: pointer;
 }
 
-/* Books Display */
+/* ////// MODAL /////// */
+
+.books__add--modal {
+  border: 2px solid red;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1em;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50%;
+  max-height: 50%;
+
+  padding: 0.5em 1em;
+
+  transition: transform 0.3s ease-in-out;
+  background-color: rgb(245, 245, 245);
+
+  z-index: 1;
+}
+
+.input {
+  padding: 0.75em;
+  /* border: 1px solid black; */
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 10px;
+}
+
+.modal__submit {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: aquamarine;
+  border: none;
+
+  margin-bottom: 1em;
+}
+.modal__submit:hover,
+.modal__submit:focus {
+  background-color: white;
+  cursor: pointer;
+}
+
+.hidden {
+  /* visibility: hidden; */
+}
+
+/*////////// Books Display /////////*/
 
 .books__display {
   /* border: 2px solid red; */
