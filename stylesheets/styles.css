@@ -79,7 +79,7 @@ body {
 /* ////// MODAL /////// */
 
 .books__add--modal {
-  border: 2px solid red;
+  border: 1px solid black;
 
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 50%;
-  max-height: 50%;
+  /* max-height: 50%; */
 
   padding: 0.5em 1em;
 
@@ -126,7 +126,7 @@ body {
 }
 
 .hidden {
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 /*////////// Books Display /////////*/
