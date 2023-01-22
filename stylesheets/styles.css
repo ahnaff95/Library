@@ -146,11 +146,11 @@ body {
 .books__display {
   /* border: 2px solid red; */
 
-  padding: 1em;
-
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1.25rem;
+
+  margin: 1em;
 }
 
 .book {
@@ -167,12 +167,33 @@ body {
   gap: 0.5em;
 }
 
+@media (min-width: 550px) {
+  .books__display {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5em;
+  }
+}
+@media (min-width: 1024px) {
+  .books__display {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2em;
+  }
+}
+@media (min-width: 1440px) {
+  .books__display {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3em;
+  }
+}
+
 .book__btn {
   font-size: inherit;
   font-family: inherit;
   border: none;
   border-radius: 5px;
   padding: 0.25em 0.5em;
+  /* border: 2px solid red; */
+  width: 100%;
 }
 
 .hasRead {

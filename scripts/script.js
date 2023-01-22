@@ -24,7 +24,7 @@
 // Remove Book ✅
 // Change Read Status ✅
 // Modal close on click outside ✅
-// Responsive site
+// Responsive site ✅
 
 // DOM Selectors
 const bookDisplay = document.getElementById("bookDisplay");
@@ -72,7 +72,33 @@ btnLogin.addEventListener("click", () => alert("Work in Progress!"));
 
 ///// Main Functions /////
 
-let library = [];
+let library = [
+  {
+    title: "Deep Work",
+    author: "Cal Newport",
+    pages: 306,
+    read: true,
+  },
+  {
+    title: "Atomic Habits",
+    author: "James Clear",
+    pages: 289,
+    read: true,
+  },
+  {
+    title: "Essentialism",
+    author: "George McKnowen",
+    pages: 306,
+    read: false,
+  },
+  {
+    title: "Essentialism",
+    author: "George McKnowen",
+    pages: 306,
+    read: false,
+  },
+];
+bookLoop();
 
 function book(title, author, pages, read) {
   this.title = title;
@@ -114,7 +140,7 @@ function bookLoop() {
     if (book.read) {
       btnRead.innerHTML = `<button class="book__btn book__read hasRead" onclick="readBook(${i})">Read</button>`;
     } else if (!book.read) {
-      btnRead.innerHTML = `<button class="book__btn book__read notRead" onclick="readBook(${i})">Read</button>`;
+      btnRead.innerHTML = `<button class="book__btn book__read notRead" onclick="readBook(${i})">Not Read</button>`;
     }
 
     const libraryBook = document.createElement("div");
@@ -132,6 +158,8 @@ function bookLoop() {
   });
 }
 
+// Book Buttons //
+
 function removeBook(i) {
   library.splice(i, 1);
   bookLoop();
@@ -147,6 +175,8 @@ function readBook(i) {
   bookLoop();
   // and here
 }
+
+// Modal Functions //
 
 function openModal() {
   modalPopUp.classList.remove("hidden");
