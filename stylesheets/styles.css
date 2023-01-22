@@ -123,6 +123,7 @@ body {
 
   transition: transform 0.3s ease-in-out;
   background-color: rgb(245, 245, 245);
+  border-radius: 10px;
 
   z-index: 6;
 }
@@ -140,14 +141,17 @@ body {
   font-size: inherit;
   font-family: inherit;
   padding: 0.25em 0.5em;
-  background-color: aquamarine;
+  background-color: #395e66;
+  color: whitesmoke;
   border: none;
+  border-radius: 10px;
 
   margin-bottom: 1em;
+  transition: background 0.2s ease-in-out;
 }
 .modal__submit:hover,
 .modal__submit:focus {
-  background-color: white;
+  background-color: hsl(191, 35%, 37%);
   cursor: pointer;
 }
 

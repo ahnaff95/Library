@@ -72,33 +72,7 @@ btnLogin.addEventListener("click", () => alert("Work in Progress!"));
 
 ///// Main Functions /////
 
-let library = [
-  {
-    title: "Deep Work",
-    author: "Cal Newport",
-    pages: 306,
-    read: true,
-  },
-  {
-    title: "Atomic Habits",
-    author: "James Clear",
-    pages: 289,
-    read: true,
-  },
-  {
-    title: "Essentialism",
-    author: "George McKnowen",
-    pages: 306,
-    read: false,
-  },
-  {
-    title: "Essentialism",
-    author: "George McKnowen",
-    pages: 306,
-    read: false,
-  },
-];
-bookLoop();
+let library = [];
 
 function book(title, author, pages, read) {
   this.title = title;
