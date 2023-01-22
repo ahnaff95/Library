@@ -1,8 +1,27 @@
 "use strict";
 
+// libraryData = {
+//   title: "Deep Work",
+//   author: "Cal Newport",
+//   pages: 306,
+//   read: true,
+// },
+// {
+//   title: "Atomic Habits",
+//   author: "James Clear",
+//   pages: 289,
+//   read: true,
+// },
+// {
+//   title: "Essentialism",
+//   author: "George McKnowen",
+//   pages: 306,
+//   read: false,
+// },
+
 // Function looping through array of books - Library Array ✅
 // Modal Pop Up ✅
-// Remove Book
+// Remove Book ✅
 // Change Read Status
 // Modal close on click outside
 // Responsive site
@@ -27,26 +46,7 @@ const btnRead = document.createElement("div");
 const modalPopUp = document.querySelector(".books__add--modal");
 
 // Main Functions
-let library = [
-  {
-    title: "Deep Work",
-    author: "Cal Newport",
-    pages: 306,
-    read: true,
-  },
-  {
-    title: "Atomic Habits",
-    author: "James Clear",
-    pages: 289,
-    read: true,
-  },
-  {
-    title: "Essentialism",
-    author: "George McKnowen",
-    pages: 306,
-    read: false,
-  },
-];
+let library = [];
 
 function book(title, author, pages, read) {
   this.title = title;
@@ -115,6 +115,7 @@ function submitBook() {
 function removeBook(i) {
   library.splice(i, 1);
   bookLoop();
+  // abaker93 here again
 }
 
 function readBook(i) {
@@ -123,6 +124,8 @@ function readBook(i) {
   } else if (library[i].read === false) {
     library[i].read = true;
   }
+  bookLoop();
+  // and here
 }
 
 function openModal() {
@@ -131,7 +134,7 @@ function openModal() {
   }
 }
 
-function closeModal() {
+function closeModal(e) {
   if (!modalPopUp.classList.contains("hidden")) {
     modalPopUp.classList.add("hidden");
   }
