@@ -3,6 +3,9 @@
 // Function looping through array of books - Library Array ✅
 // Modal Pop Up ✅
 // Remove Book
+// Change Read Status
+// Modal close on click outside
+// Responsive site
 
 // DOM Selectors
 const bookDisplay = document.getElementById("bookDisplay");
@@ -17,13 +20,11 @@ const bookAuthorInput = document.getElementById("bookAuthorInput");
 const haveReadbook = document.getElementById("haveReadBook");
 const btnAddBook = document.getElementById("addBook");
 const btnLogin = document.getElementById("btnLogin");
-const btnRead = document.getElementById("btnRead");
-const btnRemove = document.getElementById("btnRemove");
+
 const btnSubmit = document.getElementById("btnSubmit");
 const modalPopUp = document.querySelector(".books__add--modal");
 
-// Main Functions -- Dummy function for now
-
+// Main Functions
 let library = [];
 
 function book(title, author, pages, read) {
@@ -39,43 +40,18 @@ function addBookToLibrary(title, author, pages, read) {
 
   console.log(newBook);
   console.log(library);
-
-  // library.forEach((book) => {
-  //   const html = `<article class="book" id="bookContainer">
-  //       <h3 class="book__title" id="bookTitle">${book.title}</h2>
-  //       <p class="book__author" id="bookAuthor">${book.author}</p>
-  //       <p class="book__pages" id="bookPages">${book.pages} Pages</p>
-  //       <button class="book__btn book__read" id="btnRead">Read</button>
-  //       <button class="book__btn book__remove" id="btnRemove">Remove</button>
-  //   </article>`;
-
-  //   bookDisplay.insertAdjacentHTML("beforeend", html);
-  // });
 }
 
-function openModal() {
-  if (modalPopUp.classList.contains("hidden")) {
-    modalPopUp.classList.remove("hidden");
-  }
-}
-
-function closeModal() {
-  if (!modalPopUp.classList.contains("hidden")) {
-    modalPopUp.classList.add("hidden");
-  }
-}
-
-function libraryLoop() {
+function booksLoop() {
   let newLibrary = library.slice(-1);
-  // console.log(newLibrary);
   // Almost cried to get this solution.
   newLibrary.forEach((book) => {
     const html = `<article class="book" id="bookContainer">
         <h3 class="book__title" id="bookTitle">${book.title}</h2>
         <p class="book__author" id="bookAuthor">${book.author}</p>
         <p class="book__pages" id="bookPages">${book.pages} Pages</p>
-        <button class="book__btn book__read" id="btnRead">Read</button>
-        <button class="book__btn book__remove" id="btnRemove">Remove</button>
+        <button class="book__btn book__read">Read</button>
+        <button class="book__btn book__remove">Remove</button>
     </article>`;
 
     bookDisplay.insertAdjacentHTML("beforeend", html);
@@ -92,35 +68,27 @@ function submitBook() {
   haveReadbook.checked = false;
 }
 
+function openModal() {
+  if (modalPopUp.classList.contains("hidden")) {
+    modalPopUp.classList.remove("hidden");
+  }
+}
+
+function closeModal() {
+  if (!modalPopUp.classList.contains("hidden")) {
+    modalPopUp.classList.add("hidden");
+  }
+}
+
+// Event Handlers / Button Click Events
+
 btnAddBook.addEventListener("click", (e) => {
-  e.preventDefault;
-  // addBookToLibrary();
+  e.preventDefault();
   openModal();
 });
-
 btnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
   submitBook();
-  console.log("submit");
   closeModal();
-  libraryLoop();
-
-  btnRemove.addEventListener("click", (e) => {
-    console.log("remove");
-  });
+  booksLoop();
 });
-
-document.addEventListener("click", function (e) {
-  if (e.target.closest(".modalPopUp")) {
-    closeModal();
-  }
-});
-
-// Atomic Habits
-// James Clear
-// 289
-// yes
-
-// openModal();
-
-// Press add book - modal pop up
