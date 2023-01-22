@@ -51,10 +51,12 @@ const displayOverlay = document.querySelector(".overlay");
 
 btnAddBook.addEventListener("click", (e) => {
   e.preventDefault();
+
   openModal();
 });
 btnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
+
   submitBook();
   closeModal();
   bookLoop();
@@ -66,7 +68,10 @@ document.addEventListener("keydown", (e) => {
     closeModal();
 });
 
-// Main Functions
+btnLogin.addEventListener("click", () => alert("Work in Progress!"));
+
+///// Main Functions /////
+
 let library = [];
 
 function book(title, author, pages, read) {
@@ -74,6 +79,15 @@ function book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+}
+
+function submitBook() {
+  const title = bookTitleInput.value;
+  const author = bookAuthorInput.value;
+  const pages = bookPagesInput.value;
+  const read = haveReadbook.checked;
+  addBookToLibrary(title, author, pages, read);
+  resetModal();
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -107,15 +121,6 @@ function bookLoop() {
   });
 }
 
-function submitBook() {
-  const title = bookTitleInput.value;
-  const author = bookAuthorInput.value;
-  const pages = bookPagesInput.value;
-  const read = haveReadbook.checked;
-  addBookToLibrary(title, author, pages, read);
-  resetModal();
-}
-
 function removeBook(i) {
   library.splice(i, 1);
   bookLoop();
@@ -146,8 +151,6 @@ function resetModal() {
   bookAuthorInput.value = bookPagesInput.value = bookTitleInput.value = "";
   haveReadbook.checked = false;
 }
-
-bookLoop();
 
 ///// UNUSED / PREVIOUS CODE
 
