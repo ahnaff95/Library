@@ -163,12 +163,20 @@ body {
   padding: 0.25em 0.5em;
 }
 
-.book__read {
+.hasRead {
   background-color: hsla(120, 94%, 46%, 0.7);
 }
-.book__read:focus,
-.book__read:hover {
+.hasRead:focus,
+.hasRead:hover {
   background-color: hsla(120, 92%, 40%, 0.7);
+  cursor: pointer;
+}
+.notRead {
+  background-color: hsla(0, 93%, 55%, 0.7);
+}
+.notRead:focus,
+.notRead:hover {
+  background-color: hsla(0, 91%, 30%, 0.7);
   cursor: pointer;
 }
 .book__remove {
