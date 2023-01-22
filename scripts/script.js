@@ -81,13 +81,24 @@ function book(title, author, pages, read) {
   this.read = read;
 }
 
+function pages(str) {
+  if (isNaN(str)) {
+    return str;
+  }
+}
+
 function submitBook() {
   const title = bookTitleInput.value;
   const author = bookAuthorInput.value;
-  const pages = bookPagesInput.value;
+  const page = bookPagesInput.value;
   const read = haveReadbook.checked;
-  addBookToLibrary(title, author, pages, read);
-  resetModal();
+
+  if (title !== "" && author !== "" && page !== "") {
+    addBookToLibrary(title, author, page, read);
+    resetModal();
+  } else {
+    alert("Incorrect Information!");
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
