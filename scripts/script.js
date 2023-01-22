@@ -22,8 +22,8 @@
 // Function looping through array of books - Library Array ✅
 // Modal Pop Up ✅
 // Remove Book ✅
-// Change Read Status
-// Modal close on click outside
+// Change Read Status ✅
+// Modal close on click outside ✅
 // Responsive site
 
 // DOM Selectors
@@ -43,7 +43,28 @@ const btnLogin = document.getElementById("btnLogin");
 const btnSubmit = document.getElementById("btnSubmit");
 const btnRemove = document.createElement("div");
 const btnRead = document.createElement("div");
+
 const modalPopUp = document.querySelector(".books__add--modal");
+const displayOverlay = document.querySelector(".overlay");
+
+// Event Handlers / Button Click Events
+
+btnAddBook.addEventListener("click", (e) => {
+  e.preventDefault();
+  openModal();
+});
+btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+  submitBook();
+  closeModal();
+  bookLoop();
+});
+
+displayOverlay.addEventListener("click", (e) => closeModal(e));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !modalPopUp.classList.contains("hidden"))
+    closeModal();
+});
 
 // Main Functions
 let library = [];
@@ -59,23 +80,6 @@ function addBookToLibrary(title, author, pages, read) {
   let newBook = new book(title, author, pages, read);
   library.push(newBook);
 }
-
-// function booksLoop() {
-//   let newLibrary = library.slice(-1);
-//   // Almost cried to get this solution.
-//   newLibrary.forEach((book, i) => {
-//     const html = `<article class="book" id="bookContainer">
-//         <h3 class="book__title" id="bookTitle">${book.title}</h2>
-//         <p class="book__author" id="bookAuthor">${book.author}</p>
-//         <p class="book__pages" id="bookPages">${book.pages} Pages</p>
-//         <button class="book__btn book__read">Read</button>
-//         <button class="book__btn book__remove">Remove</button>
-//         </article>`;
-
-//     bookDisplay.insertAdjacentHTML("beforeend", html);
-//     console.log(book, i);
-//   });
-// }
 
 function bookLoop() {
   bookDisplay.innerHTML = "";
@@ -129,15 +133,13 @@ function readBook(i) {
 }
 
 function openModal() {
-  if (modalPopUp.classList.contains("hidden")) {
-    modalPopUp.classList.remove("hidden");
-  }
+  modalPopUp.classList.remove("hidden");
+  displayOverlay.classList.remove("hidden");
 }
 
 function closeModal(e) {
-  if (!modalPopUp.classList.contains("hidden")) {
-    modalPopUp.classList.add("hidden");
-  }
+  modalPopUp.classList.add("hidden");
+  displayOverlay.classList.add("hidden");
 }
 
 function resetModal() {
@@ -147,15 +149,21 @@ function resetModal() {
 
 bookLoop();
 
-// Event Handlers / Button Click Events
+///// UNUSED / PREVIOUS CODE
 
-btnAddBook.addEventListener("click", (e) => {
-  e.preventDefault();
-  openModal();
-});
-btnSubmit.addEventListener("click", (e) => {
-  e.preventDefault();
-  submitBook();
-  closeModal();
-  bookLoop();
-});
+// function booksLoop() {
+//   let newLibrary = library.slice(-1);
+//   // Almost cried to get this solution. *** Not worth it though :/
+//   newLibrary.forEach((book, i) => {
+//     const html = `<article class="book" id="bookContainer">
+//         <h3 class="book__title" id="bookTitle">${book.title}</h2>
+//         <p class="book__author" id="bookAuthor">${book.author}</p>
+//         <p class="book__pages" id="bookPages">${book.pages} Pages</p>
+//         <button class="book__btn book__read">Read</button>
+//         <button class="book__btn book__remove">Remove</button>
+//         </article>`;
+
+//     bookDisplay.insertAdjacentHTML("beforeend", html);
+//     console.log(book, i);
+//   });
+// }
