@@ -19,13 +19,6 @@
 //   read: false,
 // },
 
-// Function looping through array of books - Library Array ✅
-// Modal Pop Up ✅
-// Remove Book ✅
-// Change Read Status ✅
-// Modal close on click outside ✅
-// Responsive site ✅
-
 // DOM Selectors
 const bookDisplay = document.getElementById("bookDisplay");
 const bookContainer = document.getElementById("bookContainer");
@@ -71,20 +64,18 @@ document.addEventListener("keydown", (e) => {
 btnLogin.addEventListener("click", () => alert("Work in Progress!"));
 
 ///// Main Functions /////
+// const libraryStorage = JSON.parse(localStorage.getItem("library"));
+let libraryStorage = localStorage.getItem("library");
+let library = libraryStorage ? JSON.parse(libraryStorage) : [];
+// Thnx to biscuitmanz from freeCodeCamp
 
-let library = [];
+bookLoop();
 
-function book(title, author, pages, read) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-}
-
-function pages(str) {
-  if (isNaN(str)) {
-    return str;
-  }
 }
 
 function submitBook() {
@@ -100,10 +91,18 @@ function submitBook() {
     alert("Incorrect Information!");
   }
 }
+function pages(str) {
+  if (isNaN(str)) {
+    return str;
+  }
+}
 
 function addBookToLibrary(title, author, pages, read) {
-  let newBook = new book(title, author, pages, read);
+  let newBook = new Book(title, author, pages, read);
+  //  Push book to local storage
   library.push(newBook);
+  localStorage.setItem("library", JSON.stringify(library));
+  console.log(localStorage);
 }
 
 function bookLoop() {
@@ -136,6 +135,8 @@ function bookLoop() {
 
 function removeBook(i) {
   library.splice(i, 1);
+  localStorage.setItem("library", JSON.stringify(library));
+
   bookLoop();
   // abaker93 here again
 }
